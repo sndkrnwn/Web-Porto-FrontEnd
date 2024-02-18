@@ -3,69 +3,10 @@ import Link from 'next/link';
 import { Card , Row, Col, Typography, Image, Button } from 'antd';
 import { ExportOutlined } from '@ant-design/icons';
 // assets
-import googleLogo from "@/public/image/google.svg"
+import { certification } from '@/libs/data/page';
 
 export default function Certification() {
     const { Title, Text } = Typography;
-    const certification = [
-        {
-            src: googleLogo.src,
-            title: "Google Ads Apps Certification",
-            organization: "Google",
-            dateIssued: "Februari 2024",
-            dateExpired: "Februari 2025"
-        },
-        {
-            src: googleLogo.src,
-            title: "Google Ads Display Certification",
-            organization: "Google",
-            dateIssued: "December 2023",
-            dateExpired: "December 2024"
-        },
-        {
-            src: googleLogo.src,
-            title: "Google Ads Search Certification",
-            organization: "Google",
-            dateIssued: "December 2023",
-            dateExpired: "December 2024"
-        },
-        {
-            src: googleLogo.src,
-            title: "Google Analitycs Certification",
-            organization: "Google",
-            dateIssued: "December 2023",
-            dateExpired: "December 2024"
-        },
-        {
-            src: googleLogo.src,
-            title: "Introduction to Generative AI",
-            organization: "Google",
-            dateIssued: "December 2023",
-            dateExpired: ""
-        },
-        {
-            src: googleLogo.src,
-            title: "Generative AI Fundamentals",
-            organization: "Google",
-            dateIssued: "December 2023",
-            dateExpired: ""
-        },
-        {
-            src: googleLogo.src,
-            title: "Introduction to Large Languages Models",
-            organization: "Google",
-            dateIssued: "December 2023",
-            dateExpired: ""
-        },
-        {
-            src: googleLogo.src,
-            title: "Introduction to Responsible AI",
-            organization: "Google",
-            dateIssued: "December 2023",
-            dateExpired: ""
-        }
-    ]
-
     return (
         <>
             <Title style={{ fontSize: "24px" }}>Certifications</Title>
@@ -83,7 +24,8 @@ export default function Certification() {
                                         preview={false}
                                     />
                                     <div style={{
-                                        marginBottom: "16px"
+                                        marginBottom: "16px",
+                                        minHeight: "80px"
                                     }}>
                                         <Title style={{ fontSize: "18px"}}>{item.title}</Title>
                                         <div style={{
@@ -103,7 +45,7 @@ export default function Certification() {
                                             }
                                         </div>
                                     </div>
-                                    <Link  href="https://skillshop.exceedlms.com/student/award/D3tQk3iwNcXNCeDfaM9eKpAa" target="_blank" >
+                                    <Link href={item.url ?? ""} target={item.url ?? "_blank"} >
                                         <Button shape="round">
                                             Show Credentials
                                             <ExportOutlined />
